@@ -3618,6 +3618,12 @@ spec:
         - --storage-path=/data
         - --storage-adv-addr=source-controller.$(RUNTIME_NAMESPACE).svc.cluster.local.
         env:
+        - name: HTTP_PROXY
+          value: http://172.20.129.165:3128
+        - name: HTTPS_PROXY
+          value: http://172.20.129.165:3128
+        - name: NO_PROXY 
+          value: 127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
         - name: RUNTIME_NAMESPACE
           valueFrom:
             fieldRef:
